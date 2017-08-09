@@ -3,14 +3,25 @@ var button = document.getElementById('counter');
 var counter = 0;
 button.onclick = function () {
     
-    //make a request to counter end point 
-    
+    //create a request object
+    var request = new XMLHttpRequest();
     //capture the response and store in variable
     
     //render the variable in correct span
+    request.onreddystatechange = function() {
+      if (request.readystate === XMLHttprequest.DONE) {
+          //take some action
+          if (request.status === 200) {
+                var counter = request.responseText;
+                span.innerHTML = counter.toString();
+                var span= document.getElementById('count');
+              
+          }
+      }  
+        //  not done yet
+    };
     
-    counter = counter + 1;
-    var span= document.getElementById('count');
-    span.innerHTML = counter.toString();
-    
+    //make the request
+    request.open('GET','http://harshitkumbhare.imad.hasura-app.io/counter',true);
+    request.send(null);
 };
