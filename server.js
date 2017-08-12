@@ -119,7 +119,7 @@ app.get('/submit-name/', function(req, res){ //submit-name?name-xxxx
    res.send(JSON.stringify(names));
 });
 
-app.get('/articles/:articleName', function (req,res){
+app.get('/articles/:articleName', function (req , res) {
     //articlename == articleone
     //articles[articleName] == {} content object for article one
     
@@ -132,7 +132,7 @@ app.get('/articles/:articleName', function (req,res){
                 res.status(404).send('Article Not Found');
             } else {
                 var articleData = result.rows[0];
-                res.send(createTemplate(articledata));            
+                res.send(createTemplate(articleData));            
             }
        }
     });
