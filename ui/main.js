@@ -20,8 +20,7 @@ submit.onclick = function () {
           } else if (request.status === 500) {
             alert('Somthing went wrong on the server');
           }
-              
-          }
+        }
       }  
         //  not done yet
     };
@@ -33,4 +32,3 @@ submit.onclick = function () {
     request.open('POST','http://harshitkumbhare.imad.hasura-app.io/login', true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(JSON.stringify({username: username, password: password}));
-};
