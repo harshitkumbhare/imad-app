@@ -13,7 +13,6 @@ submit.onclick = function () {
           //take some action
           if (request.status === 200) {
      //capture a list of names and render it as a list
-            console.log('user logged in');
             alert('Logged In Successfully');
           } else if (request.status === 403) {
               alert('username/password is incorrect');
@@ -21,9 +20,8 @@ submit.onclick = function () {
             alert('Somthing went wrong on the server');
           }
         }
-      }  
         //  not done yet
-    };
+};
     //make the request
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
@@ -32,3 +30,4 @@ submit.onclick = function () {
     request.open('POST','http://harshitkumbhare.imad.hasura-app.io/login', true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(JSON.stringify({username: username, password: password}));
+};
